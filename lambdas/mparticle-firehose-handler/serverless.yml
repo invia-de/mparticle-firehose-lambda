@@ -1,0 +1,20 @@
+service: mparticle-firehose-handler 
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: prod
+  region: eu-central-1
+
+functions:
+  processEvent:
+    handler: src/handler.handle
+
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'   
+    includeModules: true  
+    packager: 'yarn'
