@@ -17,11 +17,11 @@ class RegistrationHandler {
         'device_identities': [ {
           'type': 'ios_advertising_id',
           'encoding': 'raw',
-          'required': true
+          'required': false
         }, {
           'type': 'google_advertising_id',
           'encoding': 'raw',
-          'required': true
+          'required': false
         } ],
         'user_identities': [ {
           'type': 'email',

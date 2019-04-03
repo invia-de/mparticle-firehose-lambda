@@ -218,9 +218,9 @@ describe(`Lambda Event Handle`, () => {
       'timestamp_ms': 1454693235751,
       'firehose_version': '2.1.0'
     }
-    expect(() => { 
-        handle(event, undefined, (err, result) => {})
-    }).toThrow(/Unsupported Type:/)
-    
+
+    handle(event, undefined, (err, result) => {
+      expect(err.message).toEqual('Unsupported Type: some_unregistered_type')
+    })
   })
 })
