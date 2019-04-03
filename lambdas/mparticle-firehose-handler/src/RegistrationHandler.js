@@ -5,82 +5,134 @@ class RegistrationHandler {
     console.log(`Handling Registration Request`)
 
     return {
-      'type': 'module_registration_response',
-      'id': uuidv4(),
-      'timestamp_ms': Date.now(),
-      'firehose_version': '2.1.0',
-      'sdk_version': '2.1.0',
-      'name': 'Invia Travel Germany GmbH',
-      'description': 'Invia Travel: we invia - you travel.',
-      'version': '1.0',
-      'permissions': {
-        'device_identities': [ {
-          'type': 'ios_advertising_id',
-          'encoding': 'raw',
-          'required': false
-        }, {
-          'type': 'google_advertising_id',
-          'encoding': 'raw',
-          'required': false
-        } ],
-        'user_identities': [ {
-          'type': 'email',
-          'encoding': 'sha256',
-          'required': false
-        } ],
-        'allow_consent_state': true
+      type: 'module_registration_response',
+      id: uuidv4(),
+      timestamp_ms: Date.now(),
+      firehose_version: '2.1.0',
+      sdk_version: '2.1.0',
+      name: 'Invia',
+      description: 'Invia Travel: Partner Firehose Integration',
+      version: '1.0',
+      permissions: {
+        device_identities: [
+          {
+            type: 'android_id',
+            encoding: 'raw',
+            required: false
+          },
+          {
+            type: 'google_advertising_id',
+            encoding: 'raw',
+            required: false
+          },
+          {
+            type: 'ios_advertising_id',
+            encoding: 'raw',
+            required: false
+          },
+          {
+            type: 'ios_vendor_id',
+            encoding: 'raw',
+            required: false
+          }
+        ],
+        user_identities: [
+          {
+            type: 'email',
+            encoding: 'raw',
+            required: false
+          },
+          {
+            type: 'customer',
+            encoding: 'raw',
+            required: false
+          },
+          {
+            type: 'facebook',
+            encoding: 'raw',
+            required: false
+          },
+          {
+            type: 'google',
+            encoding: 'raw',
+            required: false
+          },
+          {
+            type: 'other',
+            encoding: 'raw',
+            required: false
+          },
+          {
+            type: 'other2',
+            encoding: 'raw',
+            required: false
+          },
+          {
+            type: 'other3',
+            encoding: 'raw',
+            required: false
+          }
+        ],
+        allow_access_location: true,
+        allow_access_ip_address: true,
+        allow_access_device_application_stamp: true,
+        allow_user_attributes: true,
+        allow_device_info: true,
+        allow_consent_state: true,
+        allow_audience_user_attributes: true,
+        allow_access_http_user_agent: true,
+        allow_access_mpid: true
       },
-      'event_processing_registration': {
-        'account_settings': [ {
-          'type': 'text',
-          'id': 'text',
-          'name': 'API Key',
-          'description': 'Secret key to use the API, provided by your account manager',
-          'visible': true,
-          'required': true,
-          'confidential': false
-        }, {
-          'type': 'text',
-          'id': 'text',
-          'name': 'Customer ID',
-          'description': 'Internal customer ID, provided by your account manager',
-          'visible': true,
-          'required': true,
-          'confidential': false
-        } ],
-        'supported_event_types': [ 'custom_event', 'session_start', 'session_end' ],
-        'supported_runtime_environments': [ 'ios', 'android' ],
-        'supported_system_notification_types': [ 'gdpr_consent_state' ],
-        'max_data_age_hours': 24
+      event_processing_registration: {
+        account_settings: [
+          {
+            type: 'text',
+            id: 'dummyId',
+            name: 'Dummy',
+            description: 'Dummy settings. Ignore',
+            visible: true,
+            required: false,
+            confidential: false
+          }
+        ],
+        supported_event_types: [
+          'session_start',
+          'session_end',
+          'custom_event',
+          'screen_view',
+          'error',
+          'privacy_setting_change',
+          'user_attribute_change',
+          'user_identity_change',
+          'push_subscription',
+          'application_state_transition',
+          'product_action',
+          'promotion_action',
+          'impression',
+          'attribution',
+          'push_message_open'
+        ],
+        supported_runtime_environments: [
+          'unknown',
+          'android',
+          'ios',
+          'mobileweb'
+        ],
+        supported_system_notification_types: ['gdpr_consent_state'],
+        max_data_age_hours: 24
       },
-      'audience_processing_registration': {
-        'account_settings': [ {
-          'type': 'text',
-          'id': 'text',
-          'name': 'API Key',
-          'description': 'Secret key to use the API, provided by your account manager',
-          'visible': true,
-          'required': true,
-          'confidential': false
-        }, {
-          'type': 'text',
-          'id': 'text',
-          'name': 'Customer ID',
-          'description': 'Internal customer ID, provided by your account manager',
-          'visible': true,
-          'required': true,
-          'confidential': false
-        } ],
-        'audience_subscription_settings': [ {
-          'type': 'integer',
-          'id': 'integer',
-          'name': 'val_count',
-          'visible': true,
-          'default_value': 120,
-          'min_value': 10,
-          'max_value': 2000,
-          'required': false
-        } ]
+      audience_processing_registration: {
+        account_settings: [
+          {
+            type: 'text',
+            id: 'dummyId',
+            name: 'Dummy',
+            description: 'Dummy settings. Ignore',
+            visible: true,
+            required: false,
+            confidential: false
+          }
+        ]
       }
     }
   }
