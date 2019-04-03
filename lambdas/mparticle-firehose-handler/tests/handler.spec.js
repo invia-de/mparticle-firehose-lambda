@@ -74,12 +74,13 @@ describe(`Lambda Event Handle`, () => {
           },
           'action': 'delete'
         } ],
-        'mpid': '12345'
+        'mpid': -4600434991045375050
       } ]
     }
 
     handle(event, undefined, (err, result) => {
       expect(result.type).toEqual('audience_membership_change_response')
+      expect(err).toBe(undefined)
     })
   })
 
@@ -105,6 +106,7 @@ describe(`Lambda Event Handle`, () => {
 
     handle(event, undefined, (err, result) => {
       expect(result.type).toEqual('audience_subscription_response')
+      expect(err).toBe(undefined)
     })
   })
 
@@ -113,11 +115,10 @@ describe(`Lambda Event Handle`, () => {
       'type': 'event_processing_request',
       'id': 'b917880b-c91d-47b5-b2fe-f14de2a4a38c',
       'timestamp_ms': 1459892017807,
-      'mpid': '12345',
+      'mpid': "-4600434991045375050",
       'source_id': '24a4e9b5-fa71-45e0-a358-e0530f7bdde9',
       'source_channel': 'native',
       'device_application_stamp': '945d6f3b-3e7e-4411-baa8-b059fd07b8b3',
-      'mpid': '12345',
       'account': {
         'account_id': 0,
         'account_settings': {
@@ -195,6 +196,9 @@ describe(`Lambda Event Handle`, () => {
 
     handle(event, undefined, (err, result) => {
       expect(result.type).toEqual('event_processing_response')
+      expect(result.mpid).toEqual('-4600434991045375050')
+
+      expect(err).toBe(undefined)
     })
   })
 
@@ -208,6 +212,7 @@ describe(`Lambda Event Handle`, () => {
 
     handle(event, undefined, (err, result) => {
       expect(result.type).toEqual('module_registration_response')
+      expect(err).toBe(undefined)
     })
   })
 
