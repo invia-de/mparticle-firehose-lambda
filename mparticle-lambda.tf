@@ -67,13 +67,6 @@ resource "aws_iam_policy" "mparticle-firehose-lambda-logging" {
 EOF
 }
 
-resource "aws_lambda_permission" "allow_mparticle" {
-  statement_id  = "AllowExecutionFromMparticle0"
-  action        = "lambda:InvokeFunction"
-  function_name = "${aws_lambda_function.mparticle-firehose-handler.function_name}"
-  principal     = "251688040737"
-}
-
 resource "aws_lambda_permission" "allow_mparticle_1" {
   statement_id  = "AllowExecutionFromMparticle1"
   action        = "lambda:InvokeFunction"
