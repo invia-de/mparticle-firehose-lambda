@@ -15,7 +15,7 @@ build: ## Builds lambda package
 
 .PHONY: invoke
 invoke: ## Invokes lambda function
-	aws lambda invoke --function-name 'arn:aws:lambda:eu-central-1:171025702017:function:mparticle-firehose-handler' /dev/stdout
+	aws lambda invoke --function-name 'arn:aws:lambda:eu-central-1:YOUR_AWS_ACCOUNT_ID:function:mparticle-firehose-handler' /dev/stdout
 
 .PHONY: plan
 plan: ## shows the calculated changes between local state and the infrastructure
