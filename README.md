@@ -30,6 +30,13 @@ To setup the lambda on AWS and grant all required permissions
 
     make deploy
 
+From this moment you may try sending requests against the lambda and its going to respond with mparticle-conform responses. 
+
 ## Cleanup
 
 If you would like to destroy all created by terraform AWS resources, execute `make destroy`
+
+
+## Contribution
+
+All Comments/Issues/Freature/Pull requests are very welcome! 
