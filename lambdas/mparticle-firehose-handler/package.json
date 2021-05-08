@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "bignumber.js": "5.0",
-    "json-bigint": "^0.3.0",
+    "json-bigint": "^1.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
