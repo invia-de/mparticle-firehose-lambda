@@ -10,7 +10,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "aws-sdk": "2.223.1",
+    "aws-sdk": "2.814.0",
     "aws-sdk-mock": "1.7.0",
     "babel-core": "6.26.0",
     "babel-jest": "^23.6.0",
